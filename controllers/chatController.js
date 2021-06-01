@@ -18,6 +18,13 @@ class Sala {
         return Room.create(room);
     }
 
+    // Create private room with 2 participantes and array of messages
+    // async createPrivateRoom(room){
+
+    //     return Room.create(room);
+
+    // }
+
     async joinRoom(data){
         const id = data.id;
         const miembro = data.miembro;

@@ -27,5 +27,5 @@ const roomSchema = new Schema({
 
 // roomSchema.set('toJSON', toJSONConfig);
 
-const Room = mongoose.model('Chat', roomSchema);
+const Room = mongoose.model('Room', roomSchema);
 module.exports = Room;
