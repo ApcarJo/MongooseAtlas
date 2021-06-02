@@ -13,6 +13,10 @@ class Sala {
 
     }
 
+    async deleteRoom(id){
+        return Room.findByIdAndRoom(id);
+    }
+
     async createRoom(room){
 
         return Room.create(room);
@@ -55,6 +59,8 @@ class Sala {
 
         return Room.findByIdAndUpdate({_id: id}, {$push: {mensajes: mensaje}});
     }
+
+
 
 }
 
