@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userController = require("../controllers/userController.js");
+const jwt = require('jsonwebtoken');
 
 
 // Return all users in the database
@@ -37,6 +38,23 @@ router.put('/', async (req, res) => {
         });
     }
 });
+
+//Login
+
+router.post('/login', async (req, res)=> {
+    try {
+
+        const {email,password} = req.body;
+        const jwt = await userController.logMe(email,password);
+        const token = jwt.token;
+        const user = jwt.user;
+        res.json({token,user});
+    }catch (err) {
+        return res.status(500).json({
+            message: err.message
+        }); 
+    } 
+})
 
 
 module.exports = router;
